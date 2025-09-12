@@ -102,7 +102,7 @@ public class DbInitializer
                 Description = "Activity 2 months ago",
                 Category = "travel",
                 City = "London",
-                Venue = "River Thames, England, United Kingdom",
+                Venue = "Natural History Museum, England, United Kingdom",
                 Latitude = 51.5575525,
                 Longitude = -0.781404
             },

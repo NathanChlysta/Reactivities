@@ -14,8 +14,8 @@ export const activitySchema = z.object({
     location: z.object({
         venue: requiredString('Venue'),
         city: z.string().optional(),
-        latitude: z.coerce.number,
-        longitude: z.coerce.number
+        latitude: z.coerce.number(),
+        longitude: z.coerce.number()
     })
 })
 
