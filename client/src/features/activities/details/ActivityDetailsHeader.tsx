@@ -6,7 +6,7 @@ type Props = {
     activity: Activity
 }
 
-export default function ActivityDetailsHeader({activity}: Props) {
+export default function ActivityDetailsHeader({ activity }: Props) {
     const isCancelled = false;
     const isHost = true;
     const isGoing = true;
@@ -64,7 +64,7 @@ export default function ActivityDetailsHeader({activity}: Props) {
                                 variant="contained"
                                 color="primary"
                                 component={Link}
-                                to={`/manage/activityId`}
+                                to={`/manage/${activity.id}`}
                                 disabled={isCancelled}
                             >
                                 Manage Event
