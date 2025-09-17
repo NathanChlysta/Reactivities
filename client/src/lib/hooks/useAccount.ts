@@ -50,7 +50,7 @@ export const useAccount = () => {
         },
         enabled: !queryClient.getQueryData(['user'])
             && location.pathname !== '/login'
-            && location.pathname !== '/regiser'
+            && location.pathname !== '/register'
     })
 
     return {
