@@ -7,7 +7,7 @@ namespace Persistence;
 public class DbInitializer
 {
 
-
+    // adds activities (with attendees) to the database on server startup if there are none
     public static async Task SeedData(AppDbContext context, UserManager<User> userManager)
     {
 

@@ -25,7 +25,8 @@ public class IsHostRequirementHandler(AppDbContext dbContext, IHttpContextAccess
         if (HttpContext?.GetRouteValue("id") is not string activityId) return;
 
         var attendee = await dbContext.ActivityAttendees
-            .SingleOrDefaultAsync(x => x.UserId == userId 
+            .AsNoTracking()
+            .SingleOrDefaultAsync(x => x.UserId == userId
                 && x.ActivityId == activityId);
 
         if (attendee == null) return;
