@@ -7,4 +7,5 @@ public interface IUserAccesor
 {
     string GetUserId();
     Task<User> GetUserAsync();
+    Task<User> GetUserWithPhotosAsync();
 }
