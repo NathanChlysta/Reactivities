@@ -24,7 +24,7 @@ public class DeletePhoto
 
             if (photo == null) return Result<Unit>.Failure("Could not find photo", 400);
 
-            if (photo.Url == user.ImageUrl) return Result<Unit>.Failure("Cannot delete main photo", 400);
+            // if (photo.Url == user.ImageUrl) return Result<Unit>.Failure("Cannot delete main photo", 400);
 
             await photoService.DeletePhoto(photo.PublicId);
 
