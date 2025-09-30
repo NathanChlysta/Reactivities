@@ -12,7 +12,6 @@ export default function ProfileFollowings({ activeTab }: Props) {
     const predicate = activeTab === 3 ? 'followers' : 'followings';
     const { profile, followings, loadingFollowings } = useProfile(id, predicate);
 
-
     return (
         <Box>
             <Box display='flex'>
