@@ -5,14 +5,14 @@ export const activitySchema = z.object({
     title: requiredString('Title'),
     description: requiredString('Description'),
     category: requiredString('Category'),
-    date: z.coerce.date({
+    date: z.date({
         message: 'Date is required'
     }),
     location: z.object({
         venue: requiredString('Venue'),
         city: z.string().optional(),
-        latitude: z.coerce.number(),
-        longitude: z.coerce.number()
+        latitude: z.number(),
+        longitude: z.number()
     })
 })
 

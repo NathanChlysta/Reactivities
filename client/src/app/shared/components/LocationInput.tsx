@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { useController, type FieldValues, type UseControllerProps } from "react-hook-form"
+import { type FieldValues, useController, type UseControllerProps } from "react-hook-form"
 import { Box, debounce, List, ListItemButton, TextField, Typography } from "@mui/material";
-import type { LocationIQSuggestion } from "../../../lib/types";
 import axios from "axios";
 
 type Props<T extends FieldValues> = {
@@ -35,14 +34,14 @@ export default function LocationInput<T extends FieldValues>(props: Props<T>) {
 
             try {
                 const res = await axios.get<LocationIQSuggestion[]>(`${locationUrl}q=${query}`);
-                setSuggestions(res.data);
+                setSuggestions(res.data)
             } catch (error) {
                 console.log(error);
             } finally {
                 setLoading(false);
             }
-        }, 500), [locationUrl]
-    )
+        }, 250), [locationUrl]
+    );
 
     const handleChange = async (value: string) => {
         field.onChange(value);
@@ -71,7 +70,7 @@ export default function LocationInput<T extends FieldValues>(props: Props<T>) {
                 error={!!fieldState.error}
                 helperText={fieldState.error?.message}
             />
-            {loading && <Typography>...Loading</Typography>}
+            {loading && <Typography>Loading...</Typography>}
             {suggestions.length > 0 && (
                 <List sx={{ border: 1 }}>
                     {suggestions.map(suggestion => (
