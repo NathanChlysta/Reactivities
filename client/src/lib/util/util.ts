@@ -9,6 +9,5 @@ export function timeAgo(date: DateArg<Date>) {
     return formatDistanceToNow(date) + ' ago';
 }
 
-export const requiredString = (fieldname: string) => z
-    .string({ error: `${fieldname} is required` })
-    .trim().min(1, { message: `${fieldname} is required` });
+export const requiredString = (fieldName: string) =>
+    z.string({error: `${fieldName} is required`});
