@@ -22,7 +22,7 @@ export default function ActivityForm() {
 
     useEffect(() => {
         if (activity) reset({
-            ...activity, 
+            ...activity,
             location: {
                 city: activity.city,
                 venue: activity.venue,
@@ -33,11 +33,11 @@ export default function ActivityForm() {
     }, [activity, reset])
 
     const onSubmit = async (data: ActivitySchema) => {
-        const {location, ...rest} = data;
-        const flattenedData = {...rest, ...location}
+        const { location, ...rest } = data;
+        const flattenedData = { ...rest, ...location }
         try {
             if (activity) {
-                updateActivity.mutate({...activity, ...flattenedData}, {
+                updateActivity.mutate({ ...activity, ...flattenedData }, {
                     onSuccess: () => navigate(`/activities/${activity.id}`)
                 })
             } else {
@@ -70,7 +70,7 @@ export default function ActivityForm() {
                 </Box>
                 <LocationInput control={control} label='Enter the location' name="location" />
                 <Box display='flex' justifyContent='end' gap={3}>
-                     <Button onClick={() => navigate(-1)} color='inherit'>Cancel</Button>
+                    <Button onClick={() => navigate(-1)} color='inherit'>Cancel</Button>
                     <Button
                         type="submit"
                         color='success'

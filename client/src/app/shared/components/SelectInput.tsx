@@ -6,7 +6,8 @@ import { useController, type FieldValues, type UseControllerProps } from "react-
 type Props<T extends FieldValues> = {
     items: { text: string, value: string }[];
     label: string;
-} & UseControllerProps<T> & SelectProps
+} & UseControllerProps<T> & Partial<SelectProps>
+
 export default function TextInput<T extends FieldValues>(props: Props<T>) {
     const { field, fieldState } = useController({ ...props });
     return (

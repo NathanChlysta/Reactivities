@@ -21,7 +21,7 @@ export default function LocationInput<T extends FieldValues>(props: Props<T>) {
         }
     }, [field.value])
 
-    const locationUrl = 'https://api.locationiq.com/v1/autocomplete?key=pk.344f31b4f317c36d30c67c8173a68695&limit=5&dedupe=1&';
+    const locationUrl = 'https://api.locationiq.com/v1/autocomplete?key=pk.344f31b4f317c36d30c67c8173a68695&limit=5&dedupe=1&'
 
     const fetchSuggestions = useMemo(
         () => debounce(async (query: string) => {
@@ -40,7 +40,7 @@ export default function LocationInput<T extends FieldValues>(props: Props<T>) {
             } finally {
                 setLoading(false);
             }
-        }, 250), [locationUrl]
+        }, 500), [locationUrl]
     );
 
     const handleChange = async (value: string) => {
@@ -55,13 +55,13 @@ export default function LocationInput<T extends FieldValues>(props: Props<T>) {
         const longitude = location.lon;
 
         setInputValue(venue);
-        field.onChange({ city, venue, latitude, longitude });
+        field.onChange({city, venue, latitude, longitude});
         setSuggestions([]);
     }
 
     return (
         <Box>
-            <TextField
+            <TextField 
                 {...props}
                 value={inputValue}
                 onChange={e => handleChange(e.target.value)}
@@ -72,7 +72,7 @@ export default function LocationInput<T extends FieldValues>(props: Props<T>) {
             />
             {loading && <Typography>Loading...</Typography>}
             {suggestions.length > 0 && (
-                <List sx={{ border: 1 }}>
+                <List sx={{border: 1}}>
                     {suggestions.map(suggestion => (
                         <ListItemButton
                             divider
