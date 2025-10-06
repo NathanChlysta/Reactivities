@@ -1,9 +1,11 @@
 using System;
 using Application.Activities.DTOs;
 using Application.Core;
+using Application.Interfaces;
 using AutoMapper;
 using Domain;
 using MediatR;
+using Microsoft.Extensions.Hosting;
 using Persistence;
 
 
@@ -13,7 +15,7 @@ public class EditActivity
 {
     public class Command : IRequest<Result<Unit>>
     {
-        public required EditActiviytDto ActivityDto { get; set; }
+        public required EditActivityDto ActivityDto { get; set; }
     }
 
     public class Handler(AppDbContext context, IMapper mapper) : IRequestHandler<Command, Result<Unit>>
@@ -21,7 +23,7 @@ public class EditActivity
         public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
         {
             var activity = await context.Activities
-                .FindAsync([request.ActivityDto.Id], cancellationToken);
+                .FindAsync(request.ActivityDto.Id, cancellationToken);
 
             if (activity == null) return Result<Unit>.Failure("Activity Not Found", 404);
 

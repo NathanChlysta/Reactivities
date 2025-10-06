@@ -15,9 +15,9 @@ namespace API.Controllers;
 public class ActivitiesController : BaseApiController
 {
     [HttpGet]
-    public async Task<ActionResult<PagedList<ActivityDto, DateTime?>>> GetActivities([FromQuery]ActivityParams activityParams)
+    public async Task<ActionResult<PagedList<ActivityDto, DateTime?>>> GetActivities([FromQuery] ActivityParams activityParams)
     {
-        return HandleResult(await Mediator.Send(new GetActivityList.Query{Params = activityParams}));
+        return HandleResult(await Mediator.Send(new GetActivityList.Query { Params = activityParams }));
     }
 
     [Authorize]
@@ -34,8 +34,8 @@ public class ActivitiesController : BaseApiController
     }
 
     [HttpPut("{id}")]
-    [Authorize(Policy = "isActivityHost")]
-    public async Task<ActionResult> EditActivity(string id, EditActiviytDto activity)
+    [Authorize(Policy = "IsActivityHost")]
+    public async Task<ActionResult> EditActivity(string id, EditActivityDto activity)
     {
         activity.Id = id;
         return HandleResult(await Mediator.Send(new EditActivity.Command { ActivityDto = activity }));
