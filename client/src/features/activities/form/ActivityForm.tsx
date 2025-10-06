@@ -37,7 +37,7 @@ export default function ActivityForm() {
         const flattenedData = { ...rest, ...location }
         try {
             if (activity) {
-                updateActivity.mutate({ ...activity, ...flattenedData }, {
+                updateActivity.mutate({ ...activity, ...flattenedData } as Activity, {
                     onSuccess: () => navigate(`/activities/${activity.id}`)
                 })
             } else {

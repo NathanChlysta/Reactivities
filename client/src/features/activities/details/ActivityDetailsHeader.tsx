@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default function ActivityDetailsHeader({ activity }: Props) {
-    const {updateAttendence} = useActivities(activity.id);
+    const { updateAttendance } = useActivities(activity.id);
 
     return (
         <Card sx={{ position: 'relative', mb: 2, backgroundColor: 'transparent', overflow: 'hidden' }}>
@@ -57,8 +57,8 @@ export default function ActivityDetailsHeader({ activity }: Props) {
                             <StyledButton
                                 variant='contained'
                                 color={activity.isCancelled ? 'success' : 'error'}
-                                onClick={() => updateAttendence.mutate(activity.id)}
-                                disabled={updateAttendence.isPending}
+                                onClick={() => updateAttendance.mutate(activity.id)}
+                                disabled={updateAttendance.isPending}
                             >
                                 {activity.isCancelled ? 'Re-activate Activity' : 'Cancel Activity'}
                             </StyledButton>
@@ -76,8 +76,8 @@ export default function ActivityDetailsHeader({ activity }: Props) {
                         <StyledButton
                             variant="contained"
                             color={activity.isGoing ? 'primary' : 'info'}
-                            onClick={() => updateAttendence.mutate(activity.id)}
-                            disabled={updateAttendence.isPending || activity.isCancelled}
+                            onClick={() => updateAttendance.mutate(activity.id)}
+                            disabled={updateAttendance.isPending || activity.isCancelled}
                         >
                             {activity.isGoing ? 'Cancel Attendance' : 'Join Activity'}
                         </StyledButton>
