@@ -12,8 +12,6 @@ type Props = {
 
 export default function PhotoUploadWidget({ uploadPhoto, loading }: Props) {
 
-    var next = false;
-
     const [files, setFiles] = useState<object & { preview: string; }[]>([]);
     const cropperRef = useRef<ReactCropperElement>(null)
     console.log(cropperRef)
@@ -27,9 +25,7 @@ export default function PhotoUploadWidget({ uploadPhoto, loading }: Props) {
     const onDrop = useCallback((acceptedFiles: File[]) => {
         setFiles(acceptedFiles.map(file => Object.assign(file, {
             preview: URL.createObjectURL(file as Blob)
-        },
-            next = true
-        )))
+        })))
     }, [])
 
     const onCrop = useCallback(() => {
