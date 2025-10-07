@@ -14,7 +14,7 @@ export default function ProfileContent() {
     }
 
     const tabContent = [
-        { label: 'About', content: <ProfileAbout />},
+        { label: 'About', content: <ProfileAbout /> },
         { label: 'Photos', content: <ProfilePhotos /> },
         { label: 'Events', content: <ProfileActivities /> },
         { label: 'Followers', content: <ProfileFollowings activeTab={value} /> },
@@ -27,8 +27,11 @@ export default function ProfileContent() {
             mt={2}
             p={3}
             elevation={3}
-            height={500}
-            sx={{ display: 'flex', alignItems: 'flex-start', borderRadius: 3 }}
+            sx={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                borderRadius: 3,
+            }}
         >
             <Tabs
                 orientation="vertical"

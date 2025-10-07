@@ -3,6 +3,7 @@ import { Avatar, Box, Button, Card, CardContent, CardHeader, Chip, Divider, Typo
 import { Link } from "react-router";
 import { formatDate } from '../../../lib/util/util'
 import AvatarPopover from "../../../app/shared/components/AvatarPopover";
+import MapPopover from "../../../app/shared/components/MapPopover";
 
 type Props = {
     activity: Activity
@@ -51,7 +52,7 @@ export default function ActivityCard({ activity }: Props) {
                     </Box>
 
                     <Place sx={{ ml: 3, mr: 1 }} />
-                    <Typography variant="body2">{activity.venue}</Typography>
+                    <MapPopover activity={activity} />
                 </Box>
                 <Divider />
                 <Box display='flex' gap={2} sx={{ backgroundColor: 'grey.200', py: 3, pl: 3 }}>

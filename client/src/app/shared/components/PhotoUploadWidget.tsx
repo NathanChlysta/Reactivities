@@ -40,7 +40,7 @@ export default function PhotoUploadWidget({ uploadPhoto, loading }: Props) {
     return (
         <Grid container spacing={3}>
             <Grid size={4}>
-                <Typography variant="overline" color="secondary">Step 1 - Add photo</Typography>
+                <Typography variant="overline" color="secondary">Add photo</Typography>
                 <Box
                     {...getRootProps()}
                     sx={{
@@ -63,19 +63,22 @@ export default function PhotoUploadWidget({ uploadPhoto, loading }: Props) {
                 </Box>
             </Grid>
             <Grid size={4}>
-                <Typography variant="overline" color="secondary">Step 2 - Resize image</Typography>
+
                 {files[0]?.preview &&
-                    <Cropper
-                        src={files[0]?.preview}
-                        style={{ height: 300, width: '90%' }}
-                        initialAspectRatio={1}
-                        aspectRatio={1}
-                        preview='.img-preview'
-                        guides={false}
-                        viewMode={1}
-                        background={false}
-                        ref={cropperRef}
-                    />}
+                    <>
+                        <Typography variant="overline" color="secondary">Resize image</Typography>
+                        <Cropper
+                            src={files[0]?.preview}
+                            style={{ height: 300, width: '90%' }}
+                            initialAspectRatio={1}
+                            aspectRatio={1}
+                            preview='.img-preview'
+                            guides={false}
+                            viewMode={1}
+                            background={false}
+                            ref={cropperRef}
+                        />
+                    </>}
             </Grid>
             <Grid size={4}>
                 {files[0]?.preview && (
